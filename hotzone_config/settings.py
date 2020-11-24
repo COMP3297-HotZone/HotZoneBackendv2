@@ -33,7 +33,7 @@ SECRET_KEY = env('HOTZONE_SECRET_KEY')
 # DEBUG = True
 DEBUG = env.bool('HOTZONE_DEBUG', default=False)
 
-ALLOWED_HOSTS = ['hotzonegroupproject.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hotzonegroupn.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
