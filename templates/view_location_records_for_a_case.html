@@ -2,32 +2,41 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Location Records</title>
-  </head>
-  <body>
+</head>
+
+<body>
     {% csrf_token %}
     <h1>{{ caserecord.patient.name }}'s Location History</h1>
-    <a href="{% url 'all_caserecord_post' %}" style="display:block;">Back to Case Records</a>
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <p style="text-align:left;">
+        <a href="{% url 'all_caserecord_post' %}" style="display:block;">Back to Case Records</a> {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>{% endif %}
+        <span style="float:right;">
+          <a href="{% url 'create_visitedlocation' caserecord.id %}">Add Visited Location for {{ caserecord.patient.name}}</a>
+      </span>
+    </p>
+
     <table style="width: 60%">
-      <tr> 
-        <th> Location </th>
-        <th> Category </th>
-        <th> Date From</th>
-        <th> Date To</th>
-      </tr>
-    {% for location in caserecord.visitedlocation_set.all %}
-      <tr>
-        <td> {{ location.location }} </td>
-        <td> {{ location.category }}</td>
-        <td> {{ location.dateFrom }}</td>
-        <td> {{ location.dateTo }} </td>
-      </tr>
-    {% endfor %}
+        <tr>
+            <th> Location </th>
+            <th> Category </th>
+            <th> Date From</th>
+            <th> Date To</th>
+        </tr>
+        {% for location in caserecord.visitedlocation_set.all %}
+        <tr>
+            <td> {{ location.location }} </td>
+            <td> {{ location.category }}</td>
+            <td> {{ location.dateFrom }}</td>
+            <td> {{ location.dateTo }} </td>
+        </tr>
+        {% endfor %}
     </table>
-    <a href="{% url 'create_visitedlocation' caserecord.id %}">Add Visited Location for {{ caserecord.patient.name}}</a>
+
     </ul>
-  </body>
+</body>
+
 </html>

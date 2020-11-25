@@ -10,7 +10,7 @@ class AllCaseRecordTest(unittest.TestCase):
 
     def test_details(self):
         # Issue a POST request.
-        response = self.client.post('/all_caserecord_post/')
+        response = self.client.get('/all_caserecord_get/')
 
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)

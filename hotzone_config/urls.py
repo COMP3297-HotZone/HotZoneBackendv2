@@ -48,5 +48,6 @@ urlpatterns = [
          name="all_caserecord_post"),
     path('search_caserecord_post/', SearchCaseRecord.as_view(),
          name='search_caserecord_post/'),
+     path('all_caserecord_get/', AllCaseRecordAPI.as_view(), name='all_caserecord_get'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

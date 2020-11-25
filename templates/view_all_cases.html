@@ -1,16 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="{% static 'js/view_case_record.js' %}"></script>
+
+
+<head>
     <meta charset="utf-8">
     <title>Case Records</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Case Records</h1>
     <a href="{% url 'index' %}">Back to HotZone Index Page</a>
     <p>Select a case to view location records and add visited locations.</p>
-    {% if case_records %}
+    <table id="caseRecordTable" class="display" style="width: 100%">
+        <thead>
+            <tr>
+                <th> Case ID</th>
+                <th> Patient </th>
+                <th> Date of Confirmed </th>
+                <th> Virus </th>
+                <th> Local/Imported</th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th class="searchable"> Case ID</th>
+                <th class="searchable"> Patient </th>
+                <th class="searchable"> Date of Confirmed </th>
+                <th class="searchable"> Virus </th>
+                <th class="searchable"> Local/Imported</th>
+            </tr>
+        </tfoot>
+    </table>
+    <!-- {% if case_records %}
         <table style="width: 60%">
           <tr>
             <th> Patient </th>
@@ -31,6 +58,7 @@
         </table>
     {% else %}
         <p>No case records are available.</p>
-    {% endif %}
-  </body>
+    {% endif %} -->
+</body>
+
 </html>
