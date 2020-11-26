@@ -35,7 +35,7 @@ def performCluster():
 def cluster(vector_4d, distance, time, minimum_cluster):
 
     params = {"space_eps": distance, "time_eps":time}
-    db = DBSCAN(eps=10, min_samples=minimum_cluster-1,metric=custom_metric, metric_params=params).fit_predict(vector_4d)
+    db = DBSCAN(eps=1, min_samples=minimum_cluster-1,metric=custom_metric, metric_params=params).fit_predict(vector_4d)
     
     # print(vector_4d.shape)
     # print(len(db))
