@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import VisitedLocation
 from .models import Location
 from viewCases.models import CaseRecord
-from viewCases.serializers import CaseRecordSerializer
+from viewCases.serializers import *
 
 class LocationSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
@@ -43,15 +43,21 @@ class VisitedLocationSerializer(serializers.Serializer):
 
         return visited_location
 
-
-
-class VisitedLocationStandardSerializer(serializers.Serializer):
-    location = LocationSerializer()
-    dateFrom = serializers.DateField()
-    dateTo = serializers.DateField()
-    category = serializers.CharField(max_length=20)
-    caseRecord = CaseRecordSerializer()
+class LocationStandSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=100)
+    address = serializers.CharField(max_length=500, allow_blank=True)
+    xcoord = serializers.FloatField()
+    ycoord = serializers.FloatField()
 
     def create(self, validated_data):
         return validated_data
 
+class VisitedLocationStandardSerializer(serializers.Serializer):
+    location = LocationStandSerializer()
+    dateFrom = serializers.DateField()
+    dateTo = serializers.DateField()
+    category = serializers.CharField(max_length=20)
+    caseRecord = ViewCaseSerializer()
+
+    def create(self, validated_data):
+        return validated_data
