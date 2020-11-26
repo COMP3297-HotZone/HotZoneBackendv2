@@ -18,6 +18,8 @@ whitenoise = "*"
 environs = {extras = ["django"], version = "*"}
 requests = "*"
 psycopg2-binary = "~=2.8.6"
+numpy = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.8"
