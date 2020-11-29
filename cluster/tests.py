@@ -9,14 +9,11 @@ class visitRecordTest(unittest.TestCase):
         self.client = Client()
 
     def test_details(self):
-        performCluster()
-
-        # Issue a POST request.
-        # response = self.client.post('/all_caserecord_post/')
+        response = self.client.get('/cluster_get/',{'d': "200",'t': "3",'c':"2"})
 
         # Check that the response is 200 OK.
-        # self.assertEqual(response.status_code, 200)
-        # print(response.data)
+        self.assertEqual(response.status_code, 200)
+        print(response.data)
 
 
         # Check that the rendered context contains 5 customers.

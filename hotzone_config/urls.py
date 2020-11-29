@@ -18,6 +18,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from addLocation.views import *
 from viewCases.views import *
+from cluster.views import *
 from login.views import *
 from django.conf import settings
 from django.conf.urls.static import static
@@ -49,5 +50,6 @@ urlpatterns = [
     path('search_caserecord_post/', SearchCaseRecord.as_view(),
          name='search_caserecord_post/'),
      path('all_caserecord_get/', AllCaseRecordAPI.as_view(), name='all_caserecord_get'),
+     path('cluster_get/', ClusterAPIView.as_view(), name='cluster_get'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
