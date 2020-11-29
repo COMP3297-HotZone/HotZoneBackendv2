@@ -26,6 +26,8 @@ def fetchData():
     
 def performCluster(D, T, C):
     dataArr = fetchData()
+    if not dataArr:
+        return {'Total clusters':'0','Total un-clustered':'0'}
     npDataArr = np.array(dataArr)
     # print(npDataArr.shape)
     # D = int(input("Inter-location distance threshold: ") or 200)
