@@ -30,6 +30,9 @@ function getCluster(){
                 option.text = `Cluster #${i}`
                 select.add( option );
             }
+            if(cluster_list['Total clusters']==0){
+                alert("No Cluster Yet");
+            }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
