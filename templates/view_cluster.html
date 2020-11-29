@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="{% static 'js/view_cluster.js' %}"></script>
+<a href="{% url 'index' %}">Back to HotZone Index Page</a>
+
+<head>
+    <style>
+        th.dt-center, td.dt-center { text-align: center; }
+    </style>
+    <meta charset="utf-8">
+    <title>Cluster</title>
+</head>
+
+<body>
+    <h1>View All Cluster</h1>
+    <form id="addLocationForm">
+        <label for="clusters">Choose a clusters:</label>
+        <select name="clusters" id="clusters">
+        </select>
+        <br><br>
+    </form>
+    <button onclick="selectCluster()">More details</button>
+
+    <table id="clusterTable" class="display" style="width: 100%">
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>Day</th>
+                <th>Case No.</th>
+                <th>Location Name</th>
+            </tr>
+        </thead>
+        
+    </table>
+    
+</body>
+
+</html>

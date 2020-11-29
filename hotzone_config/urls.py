@@ -51,5 +51,6 @@ urlpatterns = [
          name='search_caserecord_post/'),
      path('all_caserecord_get/', AllCaseRecordAPI.as_view(), name='all_caserecord_get'),
      path('cluster_get/', ClusterAPIView.as_view(), name='cluster_get'),
+     path('cluster/', ClusterView.as_view(), name='cluster_list')
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
