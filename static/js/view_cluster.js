@@ -18,12 +18,16 @@ function getCluster(){
     $.ajax({
         type: "GET",
         dataType: "json",
-        data: {'d': "200",'t': "3",'c':"2"},
+        data: {'d': $('#D').val(),'t': $('#T').val(),'c':$('#C').val()},
         url: "../cluster_get/",
         success: function(result) {
             cluster_list = JSON.parse(result);
             console.log(cluster_list);
-            var select = document.getElementById( 'clusters' );
+           
+            var select = document.getElementById('clusters');
+            for(i = select.options.length-1; i >= 0; i--) {
+                  select.remove(i);
+            }
             for ( i = 1; i <= cluster_list['Total clusters']; i += 1 ) {
                 option = document.createElement( 'option' );
                 option.value = i;
@@ -33,6 +37,8 @@ function getCluster(){
             if(cluster_list['Total clusters']==0){
                 alert("No Cluster Yet");
             }
+           
+        
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
@@ -40,11 +46,10 @@ function getCluster(){
             console.log(errorThrown);
         }
     })
-}
+};
 
 $(document).ready(function() {
     getCluster();
-
     var table = $('#clusterTable').DataTable(
         {
             "scrollY":        "500px",
