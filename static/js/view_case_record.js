@@ -65,12 +65,20 @@ function updateResult() {
 
         ],
         initComplete: function() {
-            var r = $('#caseRecordTable tfoot tr');
-            r.find('th').each(function() {
-                $(this).css('padding', 8);
+            this.api().columns().every(function() {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change clear', function() {
+                    if (that.search() !== this.value) {
+                        that.search(this.value)
+                            .draw();
+                    }
+                });
             });
-            $('#caseRecordTable thead').append(r);
-            $('#search_0').css('text-align', 'center');
+            var f = document.getElementsByTagName("tfoot");
+            for (var i = 0; i < f.length; i++) {
+                f[i].style.display = "table-row-group";
+            };
         }
     });
 }
