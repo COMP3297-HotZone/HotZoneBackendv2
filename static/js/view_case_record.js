@@ -53,7 +53,7 @@ function updateResult() {
         columns: [
             { data: 'id' },
             { data: 'patient.name' },
-            { data: 'patient.dateOfBirth' },
+            { data: 'dateOfConfirm' },
             { data: 'virus.name' },
             { data: 'localOrImported' },
             {
