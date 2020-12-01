@@ -9,25 +9,28 @@
 
 <head>
     <style>
-        th.dt-center, td.dt-center { text-align: center; }
+        th.dt-center,
+        td.dt-center {
+            text-align: center;
+        }
     </style>
     <meta charset="utf-8">
     <title>Cluster</title>
 </head>
 
 <body>
-    <h1>View All Cluster</h1>
-    
-        <label for="D">Inter-location distance threshold (meters): </label><input type="text" id="D" name="D" value="200"><br>
-        <label for="T">Proximity in time threshold (days): </label><input type="text" id="T" name="T" value="3"><br>
-        <label for="C">Minimum cluster size: </label><input type="text" id="C" name="C" value="2"><br><br>
-        <span><button onclick="getCluster()">Find clusters</button></span><br><br>
-        <label for="clusters">Choose a clusters:</label>
-        <select name="clusters" id="clusters">
+    <h1>View All Cluster for COVID-19</h1>
+
+    <label for="D">Inter-location distance threshold (meters): </label><input type="text" id="D" name="D" value="200"><br>
+    <label for="T">Proximity in time threshold (days): </label><input type="text" id="T" name="T" value="3"><br>
+    <label for="C">Minimum cluster size: </label><input type="text" id="C" name="C" value="2"><br><br>
+    <span><button onclick="getCluster()">Find clusters</button></span><br><br>
+    <label for="clusters">Choose a clusters:</label>
+    <select name="clusters" id="clusters">
         </select>
-        <button onclick="selectCluster()">More details</button>
-        <br><br>
-    
+    <button onclick="selectCluster()">More details</button>
+    <br><br>
+
 
     <table id="clusterTable" class="display" style="width: 100%">
         <thead>
@@ -39,9 +42,9 @@
                 <th>Location Name</th>
             </tr>
         </thead>
-        
+
     </table>
-    
+
 </body>
 
 </html>

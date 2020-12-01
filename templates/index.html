@@ -1,41 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>HotZone</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>HotZone</h1>
     <button onclick="location.href='../logout'">Logout</button>
 
     <ul>
-      <li><a href="{% url 'all_caserecord_post' %}">View All Cases</a></li>
-      <li>
-        <a href="{% url 'create_caserecord' %}">Create New Case Record</a>
-      </li>
-      <li><a href="{% url 'create_virus' %}">Create New Virus Record</a></li>
-      <li>
-        <a>Add Visited Location Record for Case ID:</a>
-        <input list="cases" id="case_input" />
-        <datalist id="cases">
+        <li><a href="{% url 'all_caserecord_post' %}">View All Cases</a></li>
+        <li>
+            <a href="{% url 'create_caserecord' %}">Create New Case Record</a>
+        </li>
+        <li><a href="{% url 'create_virus' %}">Create New Virus Record</a></li>
+        <li>
+            <a>Add Visited Location Record for Case ID:</a>
+            <input list="cases" id="case_input" />
+            <datalist id="cases">
           {% for case in cases %}
           <option value="{{case.pk}}"></option>
           {% endfor %}
         </datalist>
-        <button
-          type="button"
-          onclick="location.href='../create_visitedlocation/' + document.getElementById('case_input').value"
-        >
+            <button type="button" onclick="location.href='../create_visitedlocation/' + document.getElementById('case_input').value">
           Go
         </button>
-      </li>
-      <li>
-        <a href="{% url 'locations-information' %}">View All Saved Locations</a>
-      </li>
-      <li>
-        <a href="{% url 'cluster_list' %}">View All Cluster</a>
-      </li>
+        </li>
+        <li>
+            <a href="{% url 'locations-information' %}">View All Saved Locations</a>
+        </li>
+        <li>
+            <a href="{% url 'cluster_list' %}">View All Cluster for COVID-19</a>
+        </li>
     </ul>
-  </body>
+</body>
+
 </html>
